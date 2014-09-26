@@ -1,0 +1,183 @@
+{% extends "master.html" %}
+{% block javaScriptHeader %}
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+    <script>
+        var map;
+        var geocoder;
+        var bounds = new google.maps.LatLngBounds();
+        var markersArray = [];
+
+        var origins = {{ origins |tojson }}
+        var destinations = {{ destinations |tojson }}
+
+        var destinationIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=D|FF0000|000000';
+        var originIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=O|FFFF00|000000';
+        var placeSearch, autocomplete, infoWindow;
+
+        function initialize() {
+            var opts = {
+                center: new google.maps.LatLng(55.53, 9.4),
+                zoom: 17
+            };
+            map = new google.maps.Map(document.getElementById('map-canvas'), opts);
+            geocoder = new google.maps.Geocoder();
+
+            // Create the autocomplete object, restricting the search
+            // to geographical location types.
+            autocomplete = new google.maps.places.Autocomplete(
+                    /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
+                    { types: ['geocode'] });
+            // When the user selects an address from the dropdown,
+            // populate the address fields in the form.
+            google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                fillInAddress();
+            });
+
+            infoWindow = new google.maps.InfoWindow();
+            if(destinations.length >= 1){
+                calculateDistances();
+            }else{
+                addMarker(origins[0], false);
+            }
+        }
+
+        function fillInAddress() {
+            // Get the place details from the autocomplete object.
+            var place = autocomplete.getPlace();
+            //adds the location
+            destinations.push(place.geometry.location);
+            //sets the input field to empty string
+            document.getElementById('autocomplete').value = '';
+            //calculate distance with the new place added
+            calculateDistances();
+        }
+
+
+        function calculateDistances() {
+            var service = new google.maps.DistanceMatrixService();
+            var e = document.getElementById("travelBy");
+            var value = e.options[e.selectedIndex].value;
+            if(value == "DRIVING"){
+                value = google.maps.TravelMode.DRIVING;
+            }else if(value == "BICYCLING"){
+                value = google.maps.TravelMode.BICYCLING;
+            }else{
+                value = google.maps.TravelMode.WALKING;
+            }
+            service.getDistanceMatrix(
+                    {
+                        origins: origins,
+                        destinations: destinations,
+                        travelMode: value,
+                        unitSystem: google.maps.UnitSystem.METRIC,
+                        avoidHighways: false,
+                        avoidTolls: false,
+                        durationInTraffic: false
+                    }, callback);
+        }
+
+        function callback(response, status) {
+            if (status != google.maps.DistanceMatrixStatus.OK) {
+                alert('Error was: ' + status);
+            } else {
+                var origins = response.originAddresses;
+                var destinations = response.destinationAddresses;
+                var outputDiv = document.getElementById('places');
+                outputDiv.innerHTML = '';
+                deleteOverlays();
+
+                for (var i = 0; i < origins.length; i++) {
+                    var results = response.rows[i].elements;
+                    addMarker(origins[i], false);
+                    for (var j = 0; j < results.length; j++) {
+                        addMarker(destinations[j], true);
+                        try{
+                            outputDiv.innerHTML += '<li onclick="deleteDestination(\''+ j +'\')">' + 'Till ' + destinations[j] + '</br>Avstånd: ' + results[j].distance.text + '</br> Tid: ' + results[j].duration.text;
+                            outputDiv.innerHTML += '</li>';
+                        }catch(err){}
+                    }
+                }
+                var headerDiv = document.getElementById('h2');
+                headerDiv.innerHTML = 'Från '+origins[0];
+            }
+        }
+
+        function addMarker(location, isDestination) {
+            var icon;
+            if (isDestination) {
+                icon = destinationIcon;
+            } else {
+                icon = originIcon;
+            }
+            geocoder.geocode({'address': location}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    bounds.extend(results[0].geometry.location);
+                    map.fitBounds(bounds);
+                    var marker = new google.maps.Marker({
+                        map: map,
+
+                        position: results[0].geometry.location,
+                        icon: icon
+                    });
+                    markersArray.push(marker);
+
+                    google.maps.event.addListener(marker, 'click', (function(content, marker) {
+                        return function(){
+                                //this stuff will change how the popup window is displayed
+                                infoWindow.setContent(content + '</br>');
+                                infoWindow.open(map, marker);
+
+                        }
+                    })(location, marker));
+                } else {
+                    alert('Geocode was not successful for the following reason: '
+                            + status);
+                }
+            });
+        }
+        function deleteDestination(index){
+            destinations.splice(index, 1);
+            //if some destinations are left, redo search
+            if(destinations.length >= 1){
+                calculateDistances();
+            //no destinations are left, remove all markers that are destinations
+            }else{
+                deleteOverlays();
+                document.getElementById('places').innerHTML = '';
+                addMarker(origins[0], false);
+            }
+        }
+
+        function deleteOverlays() {
+            for (var i = 0; i < markersArray.length; i++) {
+                markersArray[i].setMap(null);
+            }
+            markersArray = [];
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+{% endblock %}
+
+
+{% block adDistanceToFavorit %}
+    <div id="locationField">
+    <input id="autocomplete" placeholder="Var brukar du åka?" type="text" />
+    <select id="travelBy" onchange="calculateDistances()">
+        <option value="DRIVING" selected="selected">Bil</option>
+        <option value="BICYCLING">Cykel</option>
+        <option value="WALKING">Gå</option>
+    </select>
+    </div>
+
+
+
+    <div id="content-pane">
+        <div id="resultsDistance">
+            <div id="h2"></div>
+            <ul id="places"></ul>
+        </div>
+    </div>
+    <div id="map-canvas"></div>
+{% endblock %}

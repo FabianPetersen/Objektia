@@ -1,0 +1,47 @@
+<script>
+        var map;
+        var geocoder;
+        var bounds = new google.maps.LatLngBounds();
+        var origins = {{ places|tojson }}
+        var names = {{ placesnames|tojson }}
+        var links = {{ placesid|tojson }}
+
+
+        var infoWindow;
+
+        function initializeShow() {
+            var opts = {
+                center: new google.maps.LatLng(55.53, 9.4),
+                zoom: 17
+            };
+            map = new google.maps.Map(document.getElementById('map-canvas'), opts);
+            geocoder = new google.maps.Geocoder();
+
+            infoWindow = new google.maps.InfoWindow();
+
+            for (index = 0; index < origins.length; ++index) {
+                addMarker(new google.maps.LatLng(origins[index][0], origins[index][1]), index);
+            }
+        }
+
+        function addMarker(location) {
+            bounds.extend(location);
+            map.fitBounds(bounds);
+            var marker = new google.maps.Marker({
+                map: map,
+                position: location
+            });
+
+            google.maps.event.addListener(marker, 'click', (function(content, link,marker) {
+                return function(){
+                    //this stuff will change how the popup window is displayed
+                    infoWindow.setContent(content + '</br>' + '<a href="http://localhost:5000/ad/'+ link +'" class="likeabutton">Besök</a>');
+                    infoWindow.open(map, marker);
+
+                }
+            })(names[index], links[index], marker));
+        }
+
+        google.maps.event.addDomListener(window, 'load', initializeShow);
+
+    </script>

@@ -1,0 +1,35 @@
+{% extends "master.html" %}
+{% block javaScriptHeader %}
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css' />
+    <link href="/static/stylesheet/adView.css" rel="stylesheet" type='text/css' />
+
+    {% include "parts/placesDistanceJS.html" %}
+    {% include "parts/placesNearbyStoresJS.html" %}
+    {% include "parts/placesImageGalleryJS.html" %}
+{% endblock %}
+
+{% block adView %}
+    <!-- jag skickar inte med videofilerna -->
+    {% include "parts/placesVideo.html" %}
+
+    </br>
+
+    {% include "parts/placesImageGalleryShow.html" %}
+
+    </br>
+
+    {% include "parts/placesText.html" %}
+
+    </br>
+
+    <div id="mapObjectContainer">
+        {% include "parts/placesDistanceShow.html" %}
+    </div>
+
+    </br>
+
+    <div id="mapObjectContainer">
+        {% include "parts/placesNearbyStoresShow.html" %}
+    </div>
+
+{% endblock %}

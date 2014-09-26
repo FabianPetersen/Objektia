@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+{% block javaScriptHeader %}
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+    <link href="/static/stylesheet/adView.css" rel="stylesheet" type='text/css' />
+    {% include "parts/placesResultJS.html" %}
+{% endblock %}
+
+
+{% block adView %}
+
+    <div id="mapObjectContainer">
+        <div id="map-canvas"/>
+    </div>
+
+   {% include "parts/placesAds.html" %}
+
+{% endblock %}

@@ -1,0 +1,18 @@
+<div id="locationField">
+    <input id="autocomplete" placeholder="Var brukar du åka?" type="text" />
+    <select id="travelBy" onchange="calculateDistances()">
+        <option value="DRIVING" selected="selected">Bil</option>
+        <option value="BICYCLING">Cykel</option>
+        <option value="WALKING">Gå</option>
+    </select>
+    </div>
+
+
+
+    <div id="content-pane">
+        <div id="resultsDistance">
+            <div id="h2"></div>
+            <ul id="places"></ul>
+        </div>
+    </div>
+<div id="map-canvas"></div>

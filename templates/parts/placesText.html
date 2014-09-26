@@ -1,0 +1,14 @@
+{% for row in rows %}
+        {% if row|length < 2 %}
+            <div id="item_row">
+                <div id="item_header">{{ row[0] }}</div>
+            </div>
+             </br>
+        {% else %}
+            <div id="item_row">
+                <div id="item_row_header">{{ row[0] }}</div>
+                <div id="item_row_content">{{ row[1] }}</div>
+            </div>
+            </br>
+        {% endif %}
+{% endfor %}

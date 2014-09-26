@@ -1,0 +1,30 @@
+    {% for ad in ads %}
+        <div id="container">
+            <img src={{ ad["imageURL"] }} height="180" width="180" alt={{ ad["imageURL"] }}/>
+            <div id="ad_name">
+                 {{ ad["name"] }}
+            </div>
+
+            <div id="ad_size">
+                {{ ad["size"] }} <br />
+                {{ ad["land"] }}
+            </div>
+
+            <div id="ad_cost">
+                {{ ad["cost"] }}
+            </div>
+
+
+            <div id="ad_text">
+                {{ ad["description"] }}
+            </div>
+
+            <a href="http://localhost:5000/ad/foobar" class="transparantBlock" ></a>
+
+            <div id="ad_links">
+                <a href="http://google.com" class="likeabutton">Spara</a>
+                <a href="http://google.com" class="likeabutton">Mäklare</a>
+                <a href="http://google.com" class="likeabutton">Karta</a>
+            </div>
+        </div>
+    {% endfor %}
