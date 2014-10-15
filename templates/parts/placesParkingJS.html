@@ -1,0 +1,99 @@
+<script src="https://maps.googleapis.com/maps/api/js?language=sv&v=3.exp&libraries=places"></script>
+<script>
+    var allowed_types = ['Tidsreglerat parkerings-/stoppf\xf6rbud', 'P-avgift endast bes\xf6k', 'Reserverad p-plats motorcykel', 'Reserverad p-plats r\xf6relsehindrad', 'P Avgift, boende', 'Avgiftsfri parkering']
+    var icons = ['/static/images/parking.png', '/static/images/parking.png', '/static/images/bicycleparking.png', '/static/images/disabledparking.png', '/static/images/parking.png', '/static/images/parking.png'];
+    var parking_map;
+    var boundsparking = new google.maps.LatLngBounds();
+
+    var infoWindowParking;
+
+    function initializeShowParking() {
+        var opts = {
+            center: new google.maps.LatLng( {{ coordinates[0] }}, {{ coordinates[1] }} ),
+            zoom: 17
+        };
+        parking_map = new google.maps.Map(document.getElementById('map-canvas-parking'), opts);
+        infoWindowParking = new google.maps.InfoWindow();
+
+        addMarkerParking(new google.maps.LatLng( {{ coordinates[0] }}, {{ coordinates[1] }} ), "", -1);
+        getJSONP('http://openparking.stockholm.se/LTF-Tolken/v1/ptillaten/within?radius=2000&lat={{ coordinates[0] }}&lng={{ coordinates[1] }}&outputFormat=json&callback=?&apiKey=4a8197bc-01b8-47c0-82d8-db93d5037b9d', function(data){
+            for (var index = 0; index < data['features'].length; ++index) {
+                var exists = indexOf.call(allowed_types, data['features'][index]['properties']['VF_PLATS_TYP']);
+                if(exists !== -1){
+                    for(var innerindex = 0; innerindex < data['features'][index]['geometry']['coordinates'].length ; ++innerindex){
+                        try {
+                            var lat = data['features'][index]['geometry']['coordinates'][innerindex][1];
+                            var lng = data['features'][index]['geometry']['coordinates'][innerindex][0]
+                            addMarkerParking(new google.maps.LatLng(lat, lng), data['features'][index]['properties']['VF_PLATS_TYP'], exists);
+                        //this should never happen, just to be safe
+                        }catch(err){}
+                    }
+                }
+            }
+        });
+    }
+
+    function addMarkerParking(location, text, index) {
+        boundsparking.extend(location);
+        //parking_map.fitBounds(boundsparking);
+        var marker;
+        if(index == -1){
+            marker = new google.maps.Marker({
+                map: parking_map,
+                position: location
+            });
+        }else{
+            marker = new google.maps.Marker({
+                map: parking_map,
+                position: location,
+                icon: icons[index]
+            });
+        }
+
+        google.maps.event.addListener(marker, 'click', (function(content, marker) {
+            return function(){
+                //this stuff will change how the popup window is displayed
+                infoWindowParking.setContent(content);
+                infoWindowParking.open(parking_map, marker);
+            }
+        })(text, marker));
+    }
+
+    function getJSONP(url, success) {
+
+        var ud = '_' + +new Date,
+            script = document.createElement('script'),
+            head = document.getElementsByTagName('head')[0]
+                   || document.documentElement;
+
+        window[ud] = function(data) {
+            head.removeChild(script);
+            success && success(data);
+        };
+
+        script.src = url.replace('callback=?', 'callback=' + ud);
+        head.appendChild(script);
+    }
+
+    var indexOf = function(needle) {
+        if(typeof Array.prototype.indexOf === 'function') {
+            indexOf = Array.prototype.indexOf;
+        } else {
+            indexOf = function(needle) {
+                var i = -1, index = -1;
+
+                for(i = 0; i < this.length; i++) {
+                    if(this[i] === needle) {
+                        index = i;
+                        break;
+                    }
+                }
+
+                return index;
+            };
+        }
+        return indexOf.call(this, needle);
+    };
+    google.maps.event.addDomListener(window, 'load', initializeShowParking);
+
+</script>

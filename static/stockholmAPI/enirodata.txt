@@ -1,0 +1,948 @@
+{
+  "title": "Gula sidorna API",
+  "query": "http://api.eniro.com/cs/proximity/basic?longitude=%2018.01658&country=se&max_distance=2000&version=1.1.3&latitude=59.37264",
+  "totalHits": 5123,
+  "totalCount": 5123,
+  "startIndex": 1,
+  "itemsPerPage": 25,
+  "adverts": [
+    {
+      "eniroId": "17103675",
+      "companyInfo": {
+        "companyName": "Proff AB",
+        "orgNumber": "165567641534",
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 73",
+        "postArea": "SOLNA",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          },
+          {
+            "use": "route",
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "073 - 061 68 66",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome//",
+      "homepage": null,
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/proff-ab:17103675?search_word="
+    },
+    {
+      "eniroId": "16691900",
+      "companyInfo": {
+        "companyName": "Eniro Kartor",
+        "orgNumber": "5564451846",
+        "companyText": "Här på Eniros Kartor hittar du Sveriges alla brevlådor."
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 87",
+        "postArea": "STOCKHOLM",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          },
+          {
+            "use": "route",
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "08 - 553 310 00",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome/1099199/",
+      "homepage": "http://api.eniro.com/proxy/homepage/hQKDuEAoThl-sFnWX4tlzjwJYMPhS8S8ijLoRx-vfprgHAHIfEXCP7H90rq6_OlzQ2JSYldgW9J5zrXCwp3k1Q==",
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/eniro-kartor:16691900?search_word="
+    },
+    {
+      "eniroId": "15883896",
+      "companyInfo": {
+        "companyName": "Eniro 118 118 AB",
+        "orgNumber": "165564765294",
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 87",
+        "postArea": "STOCKHOLM",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          },
+          {
+            "use": "route",
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          }
+        ]
+      },
+      "phoneNumbers": [],
+      "companyReviews": "http://www.rejta.se/omdome//",
+      "homepage": null,
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/eniro-118-118-ab:15883896?search_word="
+    },
+    {
+      "eniroId": "106036238",
+      "companyInfo": {
+        "companyName": "Eniro Initiatives AB",
+        "orgNumber": "165567630966",
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 73",
+        "postArea": "SOLNA",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.016714,
+            "latitude": 59.372643
+          },
+          {
+            "use": "route",
+            "longitude": 18.016714,
+            "latitude": 59.372643
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "08 - 524 700 59",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome//",
+      "homepage": null,
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/eniro-initiatives-ab:106036238?search_word="
+    },
+    {
+      "eniroId": "7815446",
+      "companyInfo": {
+        "companyName": "Din Del",
+        "orgNumber": "5565721502",
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40 Solna",
+        "postCode": "169 87",
+        "postArea": "STOCKHOLM",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          },
+          {
+            "use": "route",
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "020 - 821 821",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome/1143296/",
+      "homepage": "http://api.eniro.com/proxy/homepage/uANwPf5aVK3c_muuXSdbiWrOtLU6BOYXrH0i-Wc0f6Tz_ZNwOAgeCCWAK94LDFgXC9Wb5yHNULc=",
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/din-del:7815446?search_word="
+    },
+    {
+      "eniroId": "14467540",
+      "companyInfo": {
+        "companyName": "Eniro Passagen AB",
+        "orgNumber": "165567500896",
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 73",
+        "postArea": "SOLNA",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          },
+          {
+            "use": "route",
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "08 - 553 310 00",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome//",
+      "homepage": null,
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/eniro-passagen-ab:14467540?search_word="
+    },
+    {
+      "eniroId": "12924529",
+      "companyInfo": {
+        "companyName": "Guiden Västerbotten AB",
+        "orgNumber": "165567143440",
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 73",
+        "postArea": "SOLNA",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          },
+          {
+            "use": "route",
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "0910 - 77 77 02",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome//",
+      "homepage": null,
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/guiden-västerbotten-ab:12924529?search_word="
+    },
+    {
+      "eniroId": "69988868",
+      "companyInfo": {
+        "companyName": "Din Del AB",
+        "orgNumber": "165560532409",
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 87",
+        "postArea": "STOCKHOLM",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.016714,
+            "latitude": 59.372643
+          },
+          {
+            "use": "route",
+            "longitude": 18.016714,
+            "latitude": 59.372643
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "070 - 698 70 18",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome//",
+      "homepage": null,
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/din-del-ab:69988868?search_word="
+    },
+    {
+      "eniroId": "49173927",
+      "companyInfo": {
+        "companyName": "Eniro AB",
+        "orgNumber": "5565880936",
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 87",
+        "postArea": "STOCKHOLM",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          },
+          {
+            "use": "route",
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "08 - 553 310 00",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome/592359/",
+      "homepage": "http://api.eniro.com/proxy/homepage/uANwPf5aVK1a5bdkl96DX-cd6HT4zBg4R4uBIY-f1NR4fSmZKRF_rX0cZtbcVzL1sl0DEIcOouPF5PiHcSUfWw==",
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/eniro-ab:49173927?search_word="
+    },
+    {
+      "eniroId": "92261699",
+      "companyInfo": {
+        "companyName": "Din Del",
+        "orgNumber": "5565721502",
+        "companyText": "Din Del är din lokala marknadsföringspartner."
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 87",
+        "postArea": "STOCKHOLM",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          },
+          {
+            "use": "route",
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "020 - 821 821",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome/187162/",
+      "homepage": "http://api.eniro.com/proxy/homepage/uANwPf5aVK3c_muuXSdbif3c1ArH4J2eBmZpW28W-L4uW7x5I7Xm4TVgOXouC4c827o1aGVht_E=",
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/din-del:92261699?search_word="
+    },
+    {
+      "eniroId": "92274019",
+      "companyInfo": {
+        "companyName": "Eniro Sverige Försäljning AB",
+        "orgNumber": "5565801965",
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 73",
+        "postArea": "SOLNA",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.016714,
+            "latitude": 59.372643
+          },
+          {
+            "use": "route",
+            "longitude": 18.016714,
+            "latitude": 59.372643
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "08 - 553 310 00",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome/1834746/",
+      "homepage": "http://api.eniro.com/proxy/homepage/uANwPf5aVK1a5bdkl96DX-cd6HT4zBg4TxQ9ZLzFcmv0m-MYru-GyCLuXgHqp1P81bJjuiWTO40cQRfm_zh7MA==",
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/eniro-sverige-försäljning-ab:92274019?search_word="
+    },
+    {
+      "eniroId": "69112646",
+      "companyInfo": {
+        "companyName": "Proff AB",
+        "orgNumber": "5567641534",
+        "companyText": "Proff är Eniros Business-to-Business-tjänst som sammanför tusentals professionella inköpare med..."
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 87",
+        "postArea": "STOCKHOLM",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          },
+          {
+            "use": "route",
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "020 - 335 335",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome/1834795/",
+      "homepage": "http://api.eniro.com/proxy/homepage/uANwPf5aVK2Mp4JOaP5kNVywCuy89elfxRrPpsHpD_WWuuVCidVTouCoe99NCZnbGN5XWbdL26Y=",
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/proff-ab:69112646?search_word="
+    },
+    {
+      "eniroId": "14979257",
+      "companyInfo": {
+        "companyName": "Eniro Sverige AB",
+        "orgNumber": "5564451846",
+        "companyText": "Eniro är det ledande sökföretaget på den nordiska mediemarknaden."
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 73",
+        "postArea": "SOLNA",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          },
+          {
+            "use": "route",
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "08 - 553 310 00",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome/592359/",
+      "homepage": "http://api.eniro.com/proxy/homepage/uANwPf5aVK1a5bdkl96DX-cd6HT4zBg4eOESEdX7vGXwCXOINeyRjwEQs-vOgSrc8ZhToeQREvvwpcPCd62n4A==",
+      "facebook": "http://api.eniro.com/proxy/facebook/hiOpQG8hntxHmgUm49bLx8XEOckxV8R02Q6s78_u3ogL0CiURrdZ_8Q2uFB-kCpNECPrNjf55x-Ck6lAcx70AA==",
+      "infoPageLink": "http://gulasidorna.eniro.se/f/eniro-sverige-ab:14979257?search_word="
+    },
+    {
+      "eniroId": "12736583",
+      "companyInfo": {
+        "companyName": "Eniro Initiatives AB",
+        "orgNumber": "5567630966",
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 73",
+        "postArea": "SOLNA",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.016714,
+            "latitude": 59.372643
+          },
+          {
+            "use": "route",
+            "longitude": 18.016714,
+            "latitude": 59.372643
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "08 - 553 310 00",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome/677095/",
+      "homepage": "http://api.eniro.com/proxy/homepage/uANwPf5aVK1a5bdkl96DX-cd6HT4zBg4qpLR_fdOu3RkOn5AMiZ4f-Box20bCLsyEHsOx9WugFjGrtzHeTgH6Q==",
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/eniro-initiatives-ab:12736583?search_word="
+    },
+    {
+      "eniroId": "4530429",
+      "companyInfo": {
+        "companyName": "Starcus AB",
+        "orgNumber": "5565358008",
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 73",
+        "postArea": "SOLNA",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          },
+          {
+            "use": "route",
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "08 - 553 310 00",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome/450855/",
+      "homepage": "http://api.eniro.com/proxy/homepage/uANwPf5aVK1a5bdkl96DX2VF8FAvbNnvS2ImZwkxrj4u7qfzm-vmzHt0qkR7xvq1FqIAWyvDu9w=",
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/starcus-ab:4530429?search_word="
+    },
+    {
+      "eniroId": "14315008",
+      "companyInfo": {
+        "companyName": "Eniro International AB",
+        "orgNumber": "5564296670",
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 73",
+        "postArea": "SOLNA",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          },
+          {
+            "use": "route",
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "08 - 553 310 00",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome/556398/",
+      "homepage": null,
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/eniro-international-ab:14315008?search_word="
+    },
+    {
+      "eniroId": "14302906",
+      "companyInfo": {
+        "companyName": "Leta Information Eniro AB",
+        "orgNumber": "5565913596",
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40 Solna",
+        "postCode": "169 87",
+        "postArea": "STOCKHOLM",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          },
+          {
+            "use": "route",
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "08 - 553 310 00",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome/1228701/",
+      "homepage": "http://api.eniro.com/proxy/homepage/uANwPf5aVK3CVauYJtn3XGcIUWpC05zPeubbWozFhthOMae-NwyTHfP-MnSFfRgQiZEUmV6mCMU=",
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/leta-information-eniro-ab:14302906?search_word="
+    },
+    {
+      "eniroId": "16024541",
+      "companyInfo": {
+        "companyName": "Eniro Norway AB",
+        "orgNumber": "5566885652",
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 73",
+        "postArea": "SOLNA",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          },
+          {
+            "use": "route",
+            "longitude": 18.0167141,
+            "latitude": 59.3726425
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "08 - 553 310 00",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome/1200499/",
+      "homepage": null,
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/eniro-norway-ab:16024541?search_word="
+    },
+    {
+      "eniroId": "4672518",
+      "companyInfo": {
+        "companyName": "Eniro 118 118 AB",
+        "orgNumber": "5564765294",
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 73",
+        "postArea": "SOLNA",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.016714,
+            "latitude": 59.372643
+          },
+          {
+            "use": "route",
+            "longitude": 18.016714,
+            "latitude": 59.372643
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "08 - 553 310 00",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome/1262332/",
+      "homepage": "http://api.eniro.com/proxy/homepage/uANwPf5aVK1a5bdkl96DX5-gHMK-Bd2yjb7x18-iINze50091Ykru_jFAaZXbj-8BR3vb3Noa4-VQgaW-NSICg==",
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/eniro-118-118-ab:4672518?search_word="
+    },
+    {
+      "eniroId": "14412781",
+      "companyInfo": {
+        "companyName": "Addici Facility Management AB",
+        "orgNumber": "5560846783",
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 73",
+        "postArea": "SOLNA",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.016714,
+            "latitude": 59.372643
+          },
+          {
+            "use": "route",
+            "longitude": 18.016714,
+            "latitude": 59.372643
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "08 - 634 80 00",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome/1111034/",
+      "homepage": null,
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/addici-facility-management-ab:14412781?search_word="
+    },
+    {
+      "eniroId": "14587298",
+      "companyInfo": {
+        "companyName": "Eniro",
+        "orgNumber": "5564451846",
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 73",
+        "postArea": "SOLNA",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.016714,
+            "latitude": 59.372643
+          },
+          {
+            "use": "route",
+            "longitude": 18.016714,
+            "latitude": 59.372643
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "020 - 615 615",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome/1328599/",
+      "homepage": "http://api.eniro.com/proxy/homepage/uANwPf5aVK1a5bdkl96DX_Yh14ij8eMOvam7g2ckqBTBR3f_aEKA8R1arFy8ff0jOAYbRJGNyCs=",
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/eniro:14587298?search_word="
+    },
+    {
+      "eniroId": "7899629",
+      "companyInfo": {
+        "companyName": "Din Del AB",
+        "orgNumber": null,
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 73",
+        "postArea": "SOLNA",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.01671968,
+            "latitude": 59.37264076
+          },
+          {
+            "use": "route",
+            "longitude": 18.01671968,
+            "latitude": 59.37264076
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "020 - 821 821",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome/187163/",
+      "homepage": "http://api.eniro.com/proxy/homepage/uANwPf5aVK3c_muuXSdbiWSK4J46Ayaxy_GH_16ArFqoKGI81t9xg44EoHUML0H0CaZF8VBnTJ4=",
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/din-del-ab:7899629?search_word="
+    },
+    {
+      "eniroId": "14996078",
+      "companyInfo": {
+        "companyName": "Leta.se",
+        "orgNumber": null,
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 40",
+        "postCode": "169 87",
+        "postArea": "STOCKHOLM",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.01671968,
+            "latitude": 59.37264076
+          },
+          {
+            "use": "route",
+            "longitude": 18.01671968,
+            "latitude": 59.37264076
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "08 - 553 310 00",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome/837684/",
+      "homepage": "http://api.eniro.com/proxy/homepage/uANwPf5aVK3CVauYJtn3XOBBkStdU7gUe5hQUCgVJnUTetjq8UHQPJH8LiBPTgCjx4du88TJPvw=",
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/letase:14996078?search_word="
+    },
+    {
+      "eniroId": "49704316",
+      "companyInfo": {
+        "companyName": "Testbolag1",
+        "orgNumber": null,
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard",
+        "postCode": "169 73",
+        "postArea": "SOLNA",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.016552,
+            "latitude": 59.3725281
+          },
+          {
+            "use": "route",
+            "longitude": 18.016552,
+            "latitude": 59.3725281
+          }
+        ]
+      },
+      "phoneNumbers": [],
+      "companyReviews": "http://www.rejta.se/omdome/1749827/",
+      "homepage": "http://api.eniro.com/proxy/homepage/uANwPf5aVK1qM_SWVZC8i892E4djRzr1vC7kO675P605ZH_Va3qNzs8S5ByC6NAO3bUyb7pnEWI=",
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/testbolag1:49704316?search_word="
+    },
+    {
+      "eniroId": "13744582",
+      "companyInfo": {
+        "companyName": "Erins Taxi",
+        "orgNumber": "196204183310",
+        "companyText": null
+      },
+      "address": {
+        "streetName": "Gustav III:s Boulevard 53",
+        "postCode": "169 73",
+        "postArea": "SOLNA",
+        "postBox": null
+      },
+      "location": {
+        "coordinates": [
+          {
+            "longitude": 18.0163837,
+            "latitude": 59.3725004
+          },
+          {
+            "use": "route",
+            "longitude": 18.0163837,
+            "latitude": 59.3725004
+          }
+        ]
+      },
+      "phoneNumbers": [
+        {
+          "type": "std",
+          "phoneNumber": "08 - 92 77 83",
+          "label": null
+        }
+      ],
+      "companyReviews": "http://www.rejta.se/omdome//",
+      "homepage": null,
+      "facebook": null,
+      "infoPageLink": "http://gulasidorna.eniro.se/f/erins-taxi:13744582?search_word="
+    }
+  ]
+}

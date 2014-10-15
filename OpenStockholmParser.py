@@ -1,6 +1,9 @@
 # coding: latin-1
 __author__ = 'Fabian'
-def parseBefolkningsforandring(data):
+import requests, json, xmltodict, os
+
+
+def parse_befolkningsforandring(data):
     dictionary = {}
     for i in data["data"]["befforandr"]:
         if not i["AREA_CODE"] in dictionary:
@@ -14,7 +17,8 @@ def parseBefolkningsforandring(data):
 
     return dictionary
 
-def parseArbetslosa(data):
+
+def parse_arbetslosa(data):
     dictionary = {}
     for i in data["data"]["arbetslosa"]:
         if not i["AREA_CODE"] in dictionary:
@@ -30,7 +34,8 @@ def parseArbetslosa(data):
 
     return dictionary
 
-def parseArbetstillfallen(data):
+
+def parse_arbetstillfallen(data):
     dictionary = {}
 
     for i in data["data"]["arbetstillfallen"]:
@@ -45,7 +50,8 @@ def parseArbetstillfallen(data):
 
     return dictionary
 
-def parseAntalBostader(data):
+
+def parse_antal_bostader(data):
     dictionary = {}
     for i in data["data"]["bostader_flerbostadshus"]:
         if not i["AREA_CODE"] in dictionary:
@@ -61,7 +67,7 @@ def parseAntalBostader(data):
     return dictionary
 
 
-def parseFlytt(data):
+def parse_flytt(data):
     dictionary = {}
     for i in data["data"]["flyttningar"]:
         if not i["AREA_CODE"] in dictionary:
@@ -79,7 +85,7 @@ def parseFlytt(data):
     return dictionary
 
 
-def parseFolkmangd(data):
+def parse_folkmangd(data):
     dictionary = {}
     for i in data["data"]["befolkning"]:
         if not i["AREA_CODE"] in dictionary:
@@ -92,7 +98,7 @@ def parseFolkmangd(data):
     return dictionary
 
 
-def parseInkomst(data):
+def parse_inkomst(data):
     dictionary = {}
     for i in data["data"]["medelinkomst"]:
         if not i["AREA_CODE"] in dictionary:
@@ -106,32 +112,84 @@ def parseInkomst(data):
 
     return dictionary
 
-def parseParking(data):
+def parse_byggnadsregister(data):
     dictionary = {}
-    t = 0
-    u = 0
-    for i in data["features"]:
-        '''if not i["AREA_CODE"] in dictionary:
-            dictionary[i["AREA_CODE"]] = {}
-        if not i["YEAR"] in dictionary[i["AREA_CODE"]]:
-            dictionary[i["AREA_CODE"]][i["YEAR"]] = {"INKOMST": 0, "INKOM_ANTAL": 0, "INKOM2_ANTAL": 0}
 
-        dictionary[i["AREA_CODE"]][i["YEAR"]]["INKOMST"] += int(i["INKOMST"])
-        dictionary[i["AREA_CODE"]][i["YEAR"]]["INKOM_ANTAL"] += int(i["INKOM_ANTAL"])
-        dictionary[i["AREA_CODE"]][i["YEAR"]]["INKOM2_ANTAL"] += int(i["INKOM2_ANTAL"])
-        '''
-        #{u'P-avgift endast bes\xf6k': 0, 'Reserverad p-plats buss': 0, 'Reserverad p-plats motorcykel': 0, 'Reserverad p-plats utryckningsfordon': 0, u'Reserverad p-plats r\xf6relsehindrad': 0, 'Reserverad p-plats beskickningsbil': 0, 'P Avgift, boende': 0}
+    for i in data['data']['byggnadsregister']:
+        print i
+        break
 
-
-        if "VF_PLATS_TYP" in i["properties"]:
-            if not i["properties"]["VF_PLATS_TYP"] in dictionary:
-                dictionary[i["properties"]["VF_PLATS_TYP"]] = 0
-            dictionary[i["properties"]["VF_PLATS_TYP"]] += 1
-            t += 1
-            #print i["properties"]["VF_PLATS_TYP"]
-        else:
-            u += 1
-
-    print t
-    print u
     return dictionary
+
+
+def save_opendata(uploadfolder):
+    dictionary = {}
+    url = ["http://data.stockholm.se/set/Befolkning/Arbetstillfallen?apikey=6CR9U95D68Q8J258E830XCE874Z0J6IC",
+           "http://data.stockholm.se/set/Befolkning/Befforandr?apikey=6CR9U95D68Q8J258E830XCE874Z0J6IC",
+           "http://data.stockholm.se/set/Befolkning/Bostader_flerbostadshus?apikey=6CR9U95D68Q8J258E830XCE874Z0J6IC",
+           "http://data.stockholm.se/set/Kultur/Byggnadsregister?apikey=A3PC00KE72SCA68A1F2918L40F830AL3",
+           "http://data.stockholm.se/set/Befolkning/flyttningar?apikey=6CR9U95D68Q8J258E830XCE874Z0J6IC",
+           "http://data.stockholm.se/set/Befolkning/Befolkning?apikey=6CR9U95D68Q8J258E830XCE874Z0J6IC",
+           "http://data.stockholm.se/set/Befolkning/Medelinkomst?apikey=6CR9U95D68Q8J258E830XCE874Z0J6IC",
+           "http://data.stockholm.se/set/Befolkning/Arbetslosa?apikey=6CR9U95D68Q8J258E830XCE874Z0J6IC"]
+    filenames = ["arbetstillfallen", "befolkningsforandring", "antalbostader", "byggnadsregister", "flytt", "folkmangd", "inkomst", "arbetslöshet"]
+    for i in range(len(filenames)):
+        print str(i+1) + "/" + str(len(filenames))
+        tempdict = {}
+
+        r = requests.get(url[i])
+        r = xmltodict.parse(r.content)
+
+        if i == 0:
+            tempdict = parse_arbetstillfallen(r)
+        elif i == 1:
+            tempdict = parse_befolkningsforandring(r)
+        elif i == 2:
+             tempdict = parse_antal_bostader(r)
+        elif i == 4:
+            tempdict = parse_flytt(r)
+        elif i == 5:
+            tempdict = parse_folkmangd(r)
+        elif i == 6:
+            tempdict = parse_inkomst(r)
+        elif i == 7:
+            tempdict = parse_arbetslosa(r)
+
+        #example ["outerkey"]["innerkey"]["even_inner_key"] = "value"
+        #merge the data from the tempdict with the dictionary
+        for outerkey in tempdict.keys():
+            for innerkey in tempdict[outerkey].keys():
+                if not outerkey in dictionary.keys():
+                    dictionary[outerkey] = {}
+                if not innerkey in dictionary[outerkey].keys():
+                    dictionary[outerkey][innerkey] = tempdict[outerkey][innerkey]
+                else:
+                    for even_inner_key in tempdict[outerkey][innerkey].keys():
+                        dictionary[outerkey][innerkey][even_inner_key] = tempdict[outerkey][innerkey][even_inner_key]
+
+    save_to_file(uploadfolder, dictionary)
+    print "Done getting openData"
+
+
+def save_to_file(uploadfolder, data):
+    filename = "openstockholmdata.txt"
+    f = open(os.path.join(uploadfolder, filename), 'w')
+    f.write(json.dumps(data))
+
+
+def read_from_file(filename):
+    f = open(filename, 'r+')
+    return json.loads(f.read())
+
+
+def get_opendata(uploadfolder):
+    filename = "openstockholmdata.txt"
+    f = open(os.path.join(uploadfolder, filename), 'r+')
+    return json.loads(f.read())
+
+
+def get_parking_data(parkingurl):
+    filename = "C:\Users\Fabian\PycharmProjects\ArbeteObj\Static\StockholmAPI\\" + "parking" + ".txt"
+    r = requests.get(parkingurl)
+    f = open(filename, 'w')
+    f.write(r.content)

@@ -1,34 +1,34 @@
-<script src="https://maps.googleapis.com/maps/api/js?language=sv&v=3.exp&libraries=places"></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?language=sv&v=3.exp&libraries=places"></script>-->
     <script>
         var map, placesList, infoWindow, service, markers = [];
 
         function initializeStores() {
             var pyrmont = new google.maps.LatLng( {{ coordinates[0] }}, {{ coordinates[1] }} );
 
-        map = new google.maps.Map(document.getElementById('stores-map-canvas'), {
-            center: pyrmont,
-            zoom: 17
-        });
+            map = new google.maps.Map(document.getElementById('stores-map-canvas'), {
+                center: pyrmont,
+                zoom: 17
+            });
 
 
-        var request = {
-            location: pyrmont,
-            radius: {{ radius }},
-            //tojson filters the 'types' list to json
-            types: {{ types | tojson }}
-        };
+            var request = {
+                location: pyrmont,
+                radius: {{ radius }},
+                //tojson filters the 'types' list to json
+                types: {{ types | tojson }}
+            };
 
-        placesList = document.getElementById('stores-places');
+            placesList = document.getElementById('stores-places');
 
-        service = new google.maps.places.PlacesService(map);
-        infoWindow = new google.maps.InfoWindow();
-        service.nearbySearch(request, callbackStores);
-        //marker for the place we want to find
-        var marker = new google.maps.Marker({
-            position: pyrmont,
-            map: map,
-            title: 'Origin'
-        });
+            service = new google.maps.places.PlacesService(map);
+            infoWindow = new google.maps.InfoWindow();
+            service.nearbySearch(request, callbackStores);
+            //marker for the place we want to find
+            var marker = new google.maps.Marker({
+                position: pyrmont,
+                map: map,
+                title: 'Origin'
+            });
         }
 
         function callbackStores(results, status, pagination) {
@@ -40,7 +40,6 @@
                     pagination.nextPage();
                 }
                 createMarkers(results);
-
             }
         }
 

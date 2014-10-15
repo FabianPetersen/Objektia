@@ -3,9 +3,11 @@
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css' />
     <link href="/static/stylesheet/adView.css" rel="stylesheet" type='text/css' />
 
-    {% include "parts/placesDistanceJS.html" %}
+    {% include "parts/placesParkingJS.html" %}
     {% include "parts/placesNearbyStoresJS.html" %}
+    {% include "parts/placesDistanceJS.html" %}
     {% include "parts/placesImageGalleryJS.html" %}
+
 {% endblock %}
 
 {% block adView %}
@@ -31,5 +33,12 @@
     <div id="mapObjectContainer">
         {% include "parts/placesNearbyStoresShow.html" %}
     </div>
+
+    </br>
+
+    <div id="mapObjectContainer">
+        {% include "parts/placesParkingShow.html" %}
+    </div>
+
 
 {% endblock %}
