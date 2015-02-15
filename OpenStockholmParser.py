@@ -1,6 +1,6 @@
 # coding: latin-1
 __author__ = 'Fabian'
-import requests, json, xmltodict, os
+import requests, json, os
 
 
 def parse_befolkningsforandring(data):
@@ -175,6 +175,7 @@ def save_to_file(uploadfolder, data):
     filename = "openstockholmdata.txt"
     f = open(os.path.join(uploadfolder, filename), 'w')
     f.write(json.dumps(data))
+    f.close()
 
 
 def read_from_file(filename):
@@ -186,10 +187,3 @@ def get_opendata(uploadfolder):
     filename = "openstockholmdata.txt"
     f = open(os.path.join(uploadfolder, filename), 'r+')
     return json.loads(f.read())
-
-
-def get_parking_data(parkingurl):
-    filename = "C:\Users\Fabian\PycharmProjects\ArbeteObj\Static\StockholmAPI\\" + "parking" + ".txt"
-    r = requests.get(parkingurl)
-    f = open(filename, 'w')
-    f.write(r.content)

@@ -17,10 +17,7 @@
         var map;
         var geocoder;
         var bounds = new google.maps.LatLngBounds();
-        var origins = {{ places|tojson }}
-
-
-
+        var origins = {{ places|tojson }};
         var infoWindow;
 
         function initializeShow() {

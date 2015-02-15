@@ -1,7 +1,10 @@
 # coding: latin-1
 from __future__ import division
-from flask import Flask, render_template, jsonify
-import OpenStockholmParser, os
+import requests
+from flask import Flask, render_template, jsonify, request, current_app
+import OpenStockholmParser, os, Resrobot
+from functools import wraps
+import json
 
 app = Flask(__name__)
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -9,6 +12,21 @@ UPLOAD_FOLDER = os.path.join(APP_ROOT, 'static/stockholmAPI')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 filenames = ["arbetstillfallen", "befolkningsforandring", "antalbostader", "byggnadsregister", "flytt", "folkmangd", "inkomst", "arbetslöshet"]
+
+def support_jsonp(func):
+    """Wraps JSONified output for JSONP requests."""
+    @wraps(func)
+    def decorated_function(*args, **kwargs):
+        callback = request.args.get('callback', False)
+        if callback:
+            data = str(func(*args, **kwargs).data)
+            content = str(callback) + '(' + data + ')'
+            mimetype = 'application/javascript'
+            return current_app.response_class(content, mimetype=mimetype)
+        else:
+            return func(*args, **kwargs)
+    return decorated_function
+
 
 @app.route('/')
 def index():
@@ -119,11 +137,21 @@ def getopendata():
     OpenStockholmParser.save_opendata(app.config['UPLOAD_FOLDER'])
     return jsonify({"loading": "done"})
 
+@app.route('/htmlget/')
+def htmlget():
+    return render_template("test/htmlget.html")
+
+@app.route('/resrobot')
+@support_jsonp
+def resrobot():
+    #https://api.trafiklab.se/samtrafiken/resrobot/TransportModeList.json?key=gayBE4UBLM7uP5KgzJadAdewE2zQqVyg&apiVersion=2.1
+    return jsonify(json.loads(requests.get('https://api.trafiklab.se/samtrafiken/resrobot/Search.json?apiVersion=2.1&from=Str%C3%A4ngn%C3%A4s&to=Stockholm&fromX=18.08694126883216&fromY=59.33258778133236&toX=17.0264&toY=59.3746&coordSys=WGS84&searchType=F&key=gayBE4UBLM7uP5KgzJadAdewE2zQqVyg').content))
+
 if __name__ == '__main__':
     #har inte tagit med parkering och fastighetskartan
     #print OpenStockholmParser.parseByggnadsregister(OpenStockholmParser.readFromFile(filenames[3]))
+    Resrobot.save_resrobot(app.config['UPLOAD_FOLDER'])
+
     app.run(debug=True)
-
-
 
 

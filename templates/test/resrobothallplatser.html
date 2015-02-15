@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="/js/jquery.csv-0.71.min.js"></script>
+</head>
+
+<body>
+    <script>
+        var $ = jQuery;
+        function getJSONP(url, success) {
+
+            var ud = '_' + +new Date,
+                script = document.createElement('script'),
+                head = document.getElementsByTagName('head')[0]
+                       || document.documentElement;
+
+            window[ud] = function(data) {
+                head.removeChild(script);
+                success && success(data);
+            };
+
+            script.src = url.replace('callback=?', 'callback=' + ud);
+            head.appendChild(script);
+        }
+
+        function getHallplatser(){
+            //801b9c420711419481bc0507e98d7bad
+            getJSONP('', function(data){
+                console.log(data);
+                console.log($.csv.toObjects(data));
+            });
+        }
+
+
+    </script>
+</body>
+</html>

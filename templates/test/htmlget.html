@@ -3,19 +3,10 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-     <style>
-        html, body, #map-canvas {
-            height: 100%;
-            margin: 0px;
-            padding: 0px
-        }
-    </style>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
     <script>
-        var allowed_types = ['Tidsreglerat parkerings-/stoppf\xf6rbud', 'P-avgift endast bes\xf6k', 'Reserverad p-plats motorcykel', 'Reserverad p-plats r\xf6relsehindrad', 'P Avgift, boende', 'Avgiftsfri parkering']
 
         function getJSONP(url, success) {
-
             var ud = '_' + +new Date,
                 script = document.createElement('script'),
                 head = document.getElementsByTagName('head')[0]
@@ -29,41 +20,72 @@
             script.src = url.replace('callback=?', 'callback=' + ud);
             head.appendChild(script);
         }
-        var indexOf = function(needle) {
-            if(typeof Array.prototype.indexOf === 'function') {
-                indexOf = Array.prototype.indexOf;
-            } else {
-                indexOf = function(needle) {
-                    var i = -1, index = -1;
 
-                    for(i = 0; i < this.length; i++) {
-                        if(this[i] === needle) {
-                            index = i;
-                            break;
-                        }
-                    }
+        getJSONP('../resrobot?callback=?', function(data){
+            var table = document.getElementById('commuteTable');
+            var data = data['timetableresult']['ttitem'];
+            for(var i = 0; i < data.length; i++){
 
-                    return index;
-                };
-            }
+                table.innerHTML += 'Segment' + i;
+                for(var d = 0; d < data[i]['segment'].length; d++){
+                    //table.innerHTML += '<td>';
+                    //stopp
+                        table.innerHTML += 'Starttid: ' + data[i]['segment'][d]['arrival']['datetime'];
+                        table.innerHTML += '  Från: coordsX-' + data[i]['segment'][d]['arrival']['location']['@x']
+                                        + '   coordsY- ' + data[i]['segment'][d]['arrival']['location']['@y']
+                                        + '   Namn- ' + data[i]['segment'][d]['arrival']['location']['name'] + '</br>';
+                        //table.innerHTML += '<td>';
 
-            return indexOf.call(this, needle);
-        };
+                        //arrival
+                        table.innerHTML += '  Ankomstid: ' + data[i]['segment'][d]['departure']['datetime'];
+                        table.innerHTML += '  Till: coordsX-' + data[i]['segment'][d]['departure']['location']['@x']
+                                        + '   coordsY-' + data[i]['segment'][d]['departure']['location']['@y']
+                                        + '   Namn-' + data[i]['segment'][d]['departure']['location']['name'] + '</br>';
 
 
 
-        getJSONP('http://openparking.stockholm.se/LTF-Tolken/v1/ptillaten/within?radius=2000&lat=59.32784&lng=18.05306&outputFormat=json&callback=?&apiKey=4a8197bc-01b8-47c0-82d8-db93d5037b9d', function(data){
-            console.log(data['features']);
-            for (index = 0; index < data['features'].length; ++index) {
-                if(indexOf.call(allowed_types, data['features'][index]['properties']['VF_PLATS_TYP']) !== -1){
-                    console.log(data['features'][index]['properties']['VF_PLATS_TYP'])
+
+                        table.innerHTML += '   Färdsätt-' + data[i]['segment'][d]['segmentid']['mot']['#text'] + '</br></br>';
+
+
+
+                    /*
+                        table.innerHTML += '<td>';
+
+
+                        table.innerHTML += '</td>';
+
+
+
+                    console.log('SEGMENT' + d);
+                    console.log('Arrival')
+                    console.log(data[i]['segment'][d]['arrival']);
+                    console.log('Departure')
+                    console.log(data[i]['segment'][d]['departure']);
+
+                    table.innerHTML += '</td>';
+
+                    table.innerHTML += '<td>';
+                    //Typ av förflyttning
+                    console.log('Typ av förflyttning')
+                    console.log(data[i]['segment'][d]['segmentid']);
+                    table.innerHTML += '</td>';
+
+                    */
+
+
+                    //table.innerHTML += '</td>';
                 }
+                //table.innerHTML += '</tr>';
             }
         });
 
     </script>
 </head>
 <body>
-<div id="map-canvas"></div>
+
+    <div id="commuteTable">
+
+    </div>
 </body>
 </html>
